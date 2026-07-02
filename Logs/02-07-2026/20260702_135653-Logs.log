@@ -1,0 +1,89 @@
+2026-07-02 13:56:53 | INFO     | ETL | Started: main
+2026-07-02 13:56:53 | INFO     | ETL | ================================================================================
+2026-07-02 13:56:53 | INFO     | ETL | Tech Sales ETL Pipeline Started
+2026-07-02 13:56:53 | INFO     | ETL | ================================================================================
+2026-07-02 13:56:54 | INFO     | ETL | ============================================================
+2026-07-02 13:56:54 | INFO     | ETL | Sales Analytics ETL Pipeline Started
+2026-07-02 13:56:54 | INFO     | ETL | ============================================================
+2026-07-02 13:56:54 | INFO     | ETL | STEP 1 - Extracting data...
+2026-07-02 13:56:54 | INFO     | ETL | Started: extract_sales
+2026-07-02 13:56:54 | INFO     | ETL | Extracting sales data from: C:\Users\SomayaAbdelhakim\OneDrive - Orion360\Data Analytics Task\Sales Task\Inputs\Sales.json
+2026-07-02 13:56:57 | INFO     | ETL | Extracted 298246 sales records | columns: ['ProductKey', 'Product Name', 'Brand', 'Color', 'Subcategory', 'Category', 'CustomerKey', 'Customer Code', 'Name', 'Education', 'Occupation', 'Continent', 'City', 'State', 'CountryRegion', 'OrderDate', 'Quantity', 'Net Price']
+2026-07-02 13:56:57 | INFO     | ETL | Finished: extract_sales (3.25 sec)
+2026-07-02 13:56:57 | INFO     | ETL | Started: extract_forecast
+2026-07-02 13:56:57 | INFO     | ETL | Extracting forecast data from: C:\Users\SomayaAbdelhakim\OneDrive - Orion360\Data Analytics Task\Sales Task\Inputs\forecast.json
+2026-07-02 13:56:57 | INFO     | ETL |   Shape:      (33, 4)
+2026-07-02 13:56:57 | INFO     | ETL |   Duplicates: 0
+2026-07-02 13:56:57 | INFO     | ETL | ✓ Extracted 33 forecast records | columns: ['CountryRegion', 'Brand', 'Forecast', 'Year']
+2026-07-02 13:56:57 | INFO     | ETL | Finished: extract_forecast (0.01 sec)
+2026-07-02 13:56:57 | INFO     | ETL | STEP 2 - Validating raw data...
+2026-07-02 13:56:57 | INFO     | ETL | Started: validate_sales
+2026-07-02 13:56:57 | INFO     | ETL | Validating Sales dataset...
+2026-07-02 13:56:57 | WARNING  | ETL | Sales contains 289378 duplicate rows.
+2026-07-02 13:56:57 | INFO     | ETL | Sales validation completed.
+2026-07-02 13:56:57 | INFO     | ETL | Finished: validate_sales (0.01 sec)
+2026-07-02 13:56:57 | INFO     | ETL | Started: validate_forecast
+2026-07-02 13:56:57 | INFO     | ETL | Validating Forecast dataset...
+2026-07-02 13:56:57 | WARNING  | ETL | Forecast contains 22 duplicate rows.
+2026-07-02 13:56:57 | INFO     | ETL | Forecast validation completed.
+2026-07-02 13:56:57 | INFO     | ETL | Finished: validate_forecast (0.00 sec)
+2026-07-02 13:56:57 | INFO     | ETL | STEP 3 - Transforming data...
+2026-07-02 13:56:57 | INFO     | ETL | Started: transform_sales
+2026-07-02 13:56:57 | INFO     | ETL | Transforming Sales data...
+2026-07-02 13:57:00 | WARNING  | ETL | Removed 218008 duplicate rows.
+2026-07-02 13:57:00 | INFO     | ETL |   Color extracted from Product Name: 70632 product(s) updated | 9606 product(s) have no color in name → set to 'N/A'.
+2026-07-02 13:57:00 | INFO     | ETL | Sales transformation completed.
+2026-07-02 13:57:00 | INFO     | ETL | Finished: transform_sales (3.15 sec)
+2026-07-02 13:57:01 | INFO     | ETL | Started: transform_forecast
+2026-07-02 13:57:01 | INFO     | ETL | Transforming Forecast data...
+2026-07-02 13:57:01 | INFO     | ETL | Forecast transformation completed.
+2026-07-02 13:57:01 | INFO     | ETL | Finished: transform_forecast (0.01 sec)
+2026-07-02 13:57:01 | INFO     | ETL | STEP 4 - Building dimensions...
+2026-07-02 13:57:01 | INFO     | ETL | Building dimension tables...
+2026-07-02 13:57:01 | INFO     | ETL | Started: _build_dim_product
+2026-07-02 13:57:01 | INFO     | ETL |   DIM_Product   : 2495 rows
+2026-07-02 13:57:01 | INFO     | ETL | Finished: _build_dim_product (0.15 sec)
+2026-07-02 13:57:01 | INFO     | ETL | Started: _build_dim_customer
+2026-07-02 13:57:01 | INFO     | ETL |   DIM_Customer  : 8868 rows
+2026-07-02 13:57:01 | INFO     | ETL | Finished: _build_dim_customer (0.21 sec)
+2026-07-02 13:57:01 | INFO     | ETL | Started: _build_dim_date
+2026-07-02 13:57:01 | INFO     | ETL | Finished: _build_dim_date (0.01 sec)
+2026-07-02 13:57:01 | INFO     | ETL | Started: _build_dim_geography
+2026-07-02 13:57:01 | INFO     | ETL |   DIM_Geography : 306 rows
+2026-07-02 13:57:01 | INFO     | ETL | Finished: _build_dim_geography (0.13 sec)
+2026-07-02 13:57:01 | INFO     | ETL | Started: _build_dim_brand
+2026-07-02 13:57:01 | INFO     | ETL |   DIM_Brand     : 11 rows
+2026-07-02 13:57:01 | INFO     | ETL | Finished: _build_dim_brand (0.03 sec)
+2026-07-02 13:57:01 | INFO     | ETL | All dimension tables built.
+2026-07-02 13:57:01 | INFO     | ETL | STEP 5 - Building fact tables...
+2026-07-02 13:57:01 | INFO     | ETL | Building fact tables...
+2026-07-02 13:57:01 | INFO     | ETL | Started: build_fact_sales
+2026-07-02 13:57:01 | INFO     | ETL | Building FACT_Sales...
+2026-07-02 13:57:01 | INFO     | ETL | FACT_Sales created (80238 rows).
+2026-07-02 13:57:01 | INFO     | ETL | Finished: build_fact_sales (0.35 sec)
+2026-07-02 13:57:01 | INFO     | ETL | Started: build_fact_forecast
+2026-07-02 13:57:01 | INFO     | ETL | Building FACT_Forecast...
+2026-07-02 13:57:01 | INFO     | ETL | FACT_Forecast created (33 rows).
+2026-07-02 13:57:01 | INFO     | ETL | Finished: build_fact_forecast (0.01 sec)
+2026-07-02 13:57:01 | INFO     | ETL | Fact tables created successfully.
+2026-07-02 13:57:01 | INFO     | ETL | STEP 6 - Saving output files...
+2026-07-02 13:57:01 | INFO     | ETL | Started: save_dimensions
+2026-07-02 13:57:01 | INFO     | ETL | Saving dimension tables...
+2026-07-02 13:57:02 | INFO     | ETL | Saved DIM_Product.csv (2495 rows).
+2026-07-02 13:57:02 | INFO     | ETL | Saved DIM_Customer.csv (8868 rows).
+2026-07-02 13:57:02 | INFO     | ETL | Saved DIM_Date.csv (731 rows).
+2026-07-02 13:57:02 | INFO     | ETL | Saved DIM_Geography.csv (306 rows).
+2026-07-02 13:57:02 | INFO     | ETL | Saved DIM_Brand.csv (11 rows).
+2026-07-02 13:57:02 | INFO     | ETL | Dimension tables saved.
+2026-07-02 13:57:02 | INFO     | ETL | Finished: save_dimensions (0.08 sec)
+2026-07-02 13:57:02 | INFO     | ETL | Started: save_facts
+2026-07-02 13:57:02 | INFO     | ETL | Saving fact tables...
+2026-07-02 13:57:02 | INFO     | ETL | Saved FACT_Sales.csv (80238 rows).
+2026-07-02 13:57:02 | INFO     | ETL | Saved FACT_Forecast.csv (33 rows).
+2026-07-02 13:57:02 | INFO     | ETL | Fact tables saved.
+2026-07-02 13:57:02 | INFO     | ETL | Finished: save_facts (0.24 sec)
+2026-07-02 13:57:02 | INFO     | ETL | ============================================================
+2026-07-02 13:57:02 | INFO     | ETL | ETL Pipeline Completed Successfully
+2026-07-02 13:57:02 | INFO     | ETL | Execution Time : 8.84 seconds
+2026-07-02 13:57:02 | INFO     | ETL | ============================================================
+2026-07-02 13:57:02 | INFO     | ETL | Finished: main (8.95 sec)

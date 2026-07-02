@@ -1,0 +1,46 @@
+2026-07-02 13:55:43 | INFO     | ETL | Started: main
+2026-07-02 13:55:43 | INFO     | ETL | ================================================================================
+2026-07-02 13:55:43 | INFO     | ETL | Tech Sales ETL Pipeline Started
+2026-07-02 13:55:43 | INFO     | ETL | ================================================================================
+2026-07-02 13:55:44 | INFO     | ETL | ============================================================
+2026-07-02 13:55:44 | INFO     | ETL | Sales Analytics ETL Pipeline Started
+2026-07-02 13:55:44 | INFO     | ETL | ============================================================
+2026-07-02 13:55:44 | INFO     | ETL | STEP 1 - Extracting data...
+2026-07-02 13:55:44 | INFO     | ETL | Started: extract_sales
+2026-07-02 13:55:44 | INFO     | ETL | Extracting sales data from: C:\Users\SomayaAbdelhakim\OneDrive - Orion360\Data Analytics Task\Sales Task\Inputs\Sales.json
+2026-07-02 13:55:47 | ERROR    | ETL | Failed while executing extract_sales
+Traceback (most recent call last):
+  File "C:\Users\SomayaAbdelhakim\OneDrive - Orion360\Data Analytics Task\Sales Task\src\Logs.py", line 70, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SomayaAbdelhakim\OneDrive - Orion360\Data Analytics Task\Sales Task\src\Extractor.py", line 35, in extract_sales
+    self._log_quality_report(Sales_df,"Sales Data")
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DataExtractor' object has no attribute '_log_quality_report'
+2026-07-02 13:55:47 | ERROR    | ETL | ETL Pipeline Failed.
+Traceback (most recent call last):
+  File "C:\Users\SomayaAbdelhakim\OneDrive - Orion360\Data Analytics Task\Sales Task\main.py", line 59, in main
+    sales_df = extractor.extract_sales()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SomayaAbdelhakim\OneDrive - Orion360\Data Analytics Task\Sales Task\src\Logs.py", line 70, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SomayaAbdelhakim\OneDrive - Orion360\Data Analytics Task\Sales Task\src\Extractor.py", line 35, in extract_sales
+    self._log_quality_report(Sales_df,"Sales Data")
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DataExtractor' object has no attribute '_log_quality_report'
+2026-07-02 13:55:47 | ERROR    | ETL | Failed while executing main
+Traceback (most recent call last):
+  File "C:\Users\SomayaAbdelhakim\OneDrive - Orion360\Data Analytics Task\Sales Task\src\Logs.py", line 70, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SomayaAbdelhakim\OneDrive - Orion360\Data Analytics Task\Sales Task\main.py", line 59, in main
+    sales_df = extractor.extract_sales()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SomayaAbdelhakim\OneDrive - Orion360\Data Analytics Task\Sales Task\src\Logs.py", line 70, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SomayaAbdelhakim\OneDrive - Orion360\Data Analytics Task\Sales Task\src\Extractor.py", line 35, in extract_sales
+    self._log_quality_report(Sales_df,"Sales Data")
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DataExtractor' object has no attribute '_log_quality_report'
