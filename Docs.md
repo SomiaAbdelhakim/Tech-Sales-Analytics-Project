@@ -31,8 +31,8 @@ The dashboard enables the Sales Department to analyze:
     ------------------------------------
     |        |        |        |        |
 Dimensions  Facts  Validation Cleaning Logging
-    |
-    |
+    |         |
+    |         |
 Structured CSV Files
     |
     |
@@ -59,12 +59,11 @@ Tech-Sales-Analytics
 │   ├── validation.py
 │   └── loader.py
 │
-├── data/
-│   ├── input/
-│   │   ├── sales.json
-│   │   └── forecast.csv
-│   │
-│   └── output/
+├── input/
+│       ├── sales.json
+│       └── forecast.csv
+│   
+|── output/
 │       ├── DIM_Product.csv
 │       ├── DIM_Customer.csv
 │       ├── DIM_Date.csv
@@ -73,6 +72,10 @@ Tech-Sales-Analytics
 │       ├── FACT_Sales.csv
 │       └── FACT_Forecast.csv
 │
+|__ Logs/
+|     |__ RunData/
+|            |___ RunTimestamp-Logs.lg
+|
 ├── powerbi
 │   ├── TechSalesDashboard.pbix
 │   └── Dashboard.png
