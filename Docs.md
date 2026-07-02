@@ -74,7 +74,7 @@ Tech-Sales-Analytics
 │
 |__ Logs/
 |     |__ RunData/
-|            |___ RunTimestamp-Logs.lg
+|            |___ RunTimestamp-Logs.log
 |
 ├── powerbi
 │   ├── TechSalesDashboard.pbix
