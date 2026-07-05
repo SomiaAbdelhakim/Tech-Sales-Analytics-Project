@@ -162,7 +162,7 @@ Missing values are replaced with:
 
 ## 3. Dimension Creation
 
-The project follows a Star Schema.
+The project follows a Galaxy Schema.
 
 ### DIM_Product
 
@@ -307,11 +307,9 @@ These files are imported into Power BI.
 
 # Data Model
 
-The project uses a Star Schema.
+The project uses a Galaxy Schema.
 
-```md
-![Data Model](PowerBI/Data Model.png)
-```
+![Data Model](PowerBI/Data%20Model.png)
 
 ---
 
@@ -328,10 +326,6 @@ The project uses a Star Schema.
 | DIM_Geography | FACT_Sales | One-to-Many |
 | DIM_Geography | FACT_Forecast | One-to-Many |
 
-Cross Filter Direction
-
-Single
-
 ---
 
 # Power BI Dashboard
@@ -341,9 +335,7 @@ The dashboard provides an executive summary of sales performance.
 
 ## Dashboard Preview
 
-```md
 ![Dashboard](PowerBI/Dashboard.png)
-```
 
 ## KPI Cards
 
@@ -576,7 +568,7 @@ The solution follows Data Engineering and Business Intelligence best practices i
 
 - Modular ETL architecture
 - Data validation
-- Star Schema modeling
+- Galaxy Schema modeling
 - Optimized Power BI relationships
 - Interactive dashboard with business-focused KPIs
 - Professional documentation suitable for production and portfolio presentation
