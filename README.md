@@ -12,7 +12,7 @@ The solution transforms raw sales data into a structured dimensional model using
 
 - Design a modular Python ETL pipeline
 - Transform semi-structured JSON data into relational tables
-- Create a Star Schema data model
+- Create a Galaxy Schema data model
 - Build an optimized Power BI model
 - Develop an interactive dashboard for business users
 
@@ -133,7 +133,7 @@ Load the generated CSV files into Power BI and open the provided `.pbix` file.
 
 - Python ETL Pipeline
 - Structured CSV Output Files
-- Star Schema Data Model
+- Galaxy Schema Data Model
 - Power BI Dashboard
 - Technical Documentation
 
